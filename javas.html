@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Sederhana</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+
+    <!-- CSS Internal -->
+    <style>
+        .card {
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            max-height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" href="#">Toko Saya</a>
+    </div>
+</nav>
+
+<!-- Filter Kategori -->
+<div class="container mb-4">
+    <select id="filterKategori" class="form-select w-50 mx-auto">
+        <option value="all">Semua Kategori</option>
+        <option value="elektronik">Elektronik</option>
+        <option value="pakaian">Pakaian</option>
+        <option value="aksesoris">Aksesoris</option>
+    </select>
+</div>
+
+<!-- Daftar Produk -->
+<div class="container">
+    <div class="row" id="produkContainer">
+        <!-- Produk akan ditampilkan di sini -->
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JavaScript Internal -->
+<script>
+    // Data Produk
+    const produk = [
+        {
+            nama: "Laptop Gaming",
+            harga: 15000000,
+            deskripsi: "Laptop dengan spesifikasi tinggi untuk gaming.",
+            gambar: "https://via.placeholder.com/300x200",
+            kategori: "elektronik"
+        },
+        {
+            nama: "Kaos Polos",
+            harga: 50000,
+            deskripsi: "Kaos polos dengan bahan katun berkualitas.",
+            gambar: "https://via.placeholder.com/300x200",
+            kategori: "pakaian"
+        },
+        {
+            nama: "Headphone",
+            harga: 300000,
+            deskripsi: "Headphone dengan kualitas suara premium.",
+            gambar: "https://via.placeholder.com/300x200",
+            kategori: "elektronik"
+        },
+        {
+            nama: "Gelang Fashion",
+            harga: 25000,
+            deskripsi: "Gelang stylish untuk sehari-hari.",
+            gambar: "https://via.placeholder.com/300x200",
+            kategori: "aksesoris"
+        }
+    ];
+
+    // Fungsi Tampilkan Produk
+    function tampilkanProduk(filter = "all") {
+        const produkContainer = document.getElementById("produkContainer");
+        produkContainer.innerHTML = "";
+
+        const produkTersaring = filter === "all" ? produk : produk.filter(p => p.kategori === filter);
+
+        produkTersaring.forEach(p => {
+            const produkCard = `
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img src="${p.gambar}" class="card-img-top" alt="${p.nama}">
+                        <div class="card-body">
+                            <h5 class="card-title">${p.nama}</h5>
+                            <p class="card-text">${p.deskripsi}</p>
+                            <p class="text-primary">Rp ${p.harga.toLocaleString()}</p>
+                            <button class="btn btn-primary">Beli</button>
+                        </div>
+                    </div>
+                </div>`;
+            produkContainer.innerHTML += produkCard;
+        });
+    }
+
+    // Inisialisasi Tampilkan Semua Produk
+    tampilkanProduk();
+
+    // Event Listener untuk Filter
+    document.getElementById("filterKategori").addEventListener("change", function () {
+        tampilkanProduk(this.value);
+    });
+</script>
+
+</body>
+</html>
+
+    
