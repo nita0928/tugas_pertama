@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Selektor CSS</title>
+    <!-- CSS Internal -->
+    <style>
+        /* Selektor Elemen */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Selektor Class */
+        .highlight {
+            background-color: #ffeaa7;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .menu a:hover {
+            color: #0056b3;
+        }
+
+        /* Selektor Atribut */
+        a[href] {
+            color: #e17055;
+            font-weight: bold;
+        }
+
+        a[target="_blank"] {
+            color: #0984e3;
+        }
+
+        input[type="text"] {
+            border: 2px solid #74b9ff;
+            padding: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #00cec9;
+            border: none;
+            padding: 5px 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #009688;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Contoh Selektor CSS</h1>
+
+    <!-- Selektor Elemen -->
+    <p>Ini adalah contoh paragraf yang menggunakan <b>selektor elemen</b> pada CSS.</p>
+
+    <!-- Selektor Class -->
+    <p class="highlight">Ini adalah paragraf dengan <b>selektor class</b> bernama <code>.highlight</code>.</p>
+
+    <!-- Selektor Atribut -->
+    <div class="menu">
+        <h2>Menu</h2>
+        <a href="https://www.google.com" target="_blank">Google (target=_blank)</a><br>
+        <a href="https://www.facebook.com">Facebook (tanpa target)</a>
+    </div>
+
+    <!-- Form dengan Selektor Atribut -->
+    <h2>Form Pendaftaran</h2>
+    <form>
+        <label>Nama:</label><br>
+        <input type="text" placeholder="Masukkan nama Anda"><br><br>
+
+        <label>Email:</label><br>
+        <input type="text" placeholder="Masukkan email Anda"><br><br>
+
+        <input type="submit" value="Daftar">
+    </form>
+
+</body>
+
+</html>
